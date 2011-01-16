@@ -65,16 +65,12 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
 1. Develop a feature in a branch.
 
-	git fetch upstream
-	git ch -b integration upstream/integration
-        git checkout -b feature integration
-        # You are now on the feature branch.
+        git checkout -b feature master
+        # Code, commit, code, commit, ...
 
 1. When done, push the branch to your GitHub repo.
 
-	git checkout integration
-	git merge --squash feature
-        git push origin integration
+        git push origin feature
 
 1. Within your levi fork on GitHub, issue a *pull request*.
 1. Anyone can comment on the code. Converse! Look for errors, not style.
@@ -91,6 +87,7 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
    2. Bring in cdunn2001's changes and test
      
             git pull https://cdunn2001@github.com/cdunn2001/pulltest.git feature
+            # Test.
     
    3. Merge the changes and update the server
      
@@ -101,14 +98,11 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
       With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
    4. Close the pull request.
 
-1. At that point, you (the submitter) may delete the feature branch from your own repo. Although the upstream/master includes your changeset, it is technically a different commit. A future merge could be problematic.
+1. At that point, you (the submitter) may delete the feature branch from your own repo, if you want.
 
         git checkout master
         git br -d feature
         git push origin :feature # to delete from GitHub
-        # If you want to continue on the feature,
-        # git pull upstream master
-        # git checkout -b feature master
 
 That's it.
 
