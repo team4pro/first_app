@@ -61,7 +61,7 @@ You should see the default Rails welcome screen:
 
 ## Integration procedure.
 
-We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/book/ch5-1.html). I will write some notes on that after I test it.
+We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/book/ch5-1.html).
 
 1. Develop a feature in a branch.
 
@@ -79,6 +79,8 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
    1. Check out a new branch to test the changes — run this from your project directory
  
+            git clone git@github.com:roy98102/levi.git levi
+	    cd levi
             git checkout -b cdunn2001-feature master
 
    2. Bring in cdunn2001's changes and test
@@ -93,7 +95,7 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
     4. With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
 
-1. The submitter (and others) may then pull in the latest master from roy98102.
+1. You (and others) may then pull in the latest master from roy98102.
 
 	git remote add upstream git://github.com/roy98102/levi.git
 	git fetch upstream
@@ -101,7 +103,7 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
         git merge upstream/master
 	git push origin master
 
-1. At that point, the submitter may delete the branch from his own repo.
+1. At that point, the submitter may delete the feature branch from his own repo.
 
         git checkout master
         git br -d feature
