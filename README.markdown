@@ -65,7 +65,10 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
 1. Develop a feature in a branch.
 
+	git pull upstream master
+	git push origin master
         git checkout -b feature master
+        # You are now on the feature branch.
 
 1. When done, push the branch to your GitHub repo.
 
@@ -96,14 +99,6 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
       With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
    4. Close the pull request.
 
-1. You (and others) may then pull in the latest master from roy98102.
-
-	git remote add upstream git://github.com/roy98102/levi.git
-	git fetch upstream
-        git checkout master
-        git merge upstream/master
-	git push origin master
-
 1. At that point, the submitter may delete the feature branch from his own repo.
 
         git checkout master
@@ -121,10 +116,6 @@ That's the full solution, but we can skip steps for simple changes that do not r
     * If the change is simple, he applies it to `master` and updates the branch, all in GitHub.
     * You will see the merge-commit on your own fork-queue, but you can ignore that.
     * Close the pull request.
-1. Pull the change into you local `master`.
-        git fetch origin
-        git checkout master
-        git merge origin/master
 1. Delete your feature branch, if you want.
 
 The strange thing about the fork-queue is that *any* push you do to your GitHub repo will show up in the fork-queue. That makes your GitHub repo (usually called `origin`) very public.
