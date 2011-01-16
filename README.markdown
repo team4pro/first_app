@@ -65,14 +65,16 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
 1. Develop a feature in a branch.
 
-	git pull upstream master
-	git push origin master
-        git checkout -b feature master
+	git fetch upstream
+	git ch -b integration upstream/integration
+        git checkout -b feature integration
         # You are now on the feature branch.
 
 1. When done, push the branch to your GitHub repo.
 
-        git push origin feature
+	git checkout integration
+	git merge --squash feature
+        git push origin integration
 
 1. Within your levi fork on GitHub, issue a *pull request*.
 1. Anyone can comment on the code. Converse! Look for errors, not style.
