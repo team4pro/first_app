@@ -111,10 +111,7 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
 
 That's the full solution, but we can skip steps for simple changes that do not require testing. For those simple cases, we can take advantage of GitHub's [fork queues](https://github.com/blog/270-the-fork-queue). With that, the merge can occur entirely within GitHub.
 
-The strange thing about the fork-queue is that *any* push you do to your GitHub repo will show up in the fork-queue. That makes your GitHub repo (usually called `origin`) very public.
-
-### Simpler integration
-Here are the simplified steps:
+### Simpler integration using the fork-queue
 
 1. Develop on a feature branch.
 1. Push to GitHub.
@@ -127,6 +124,8 @@ Here are the simplified steps:
         git checkout master
         git merge origin/master
 1. Delete your feature branch, if you want.
+
+The strange thing about the fork-queue is that *any* push you do to your GitHub repo will show up in the fork-queue. That makes your GitHub repo (usually called `origin`) very public.
 
 Try a few simple pull requests on your own `experimental` branch. I'll merge them into a throw-away `trash` branch for now. Use `gitx` to see what happens to your tree after you fetch the results.
 
