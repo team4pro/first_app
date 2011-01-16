@@ -101,7 +101,7 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
       With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
    4. Close the pull request.
 
-1. At that point, you (the submitter) should delete the feature branch from your own repo. Although the upstream/master includes your changeset, it is technically a different commit. A future merge could be problematic.
+1. At that point, you (the submitter) may delete the feature branch from your own repo. Although the upstream/master includes your changeset, it is technically a different commit. A future merge could be problematic.
 
         git checkout master
         git br -d feature
@@ -110,29 +110,14 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
         # git pull upstream master
         # git checkout -b feature master
 
-That's the full solution, but we can skip steps for simple changes that do not require testing. For those simple cases, we can take advantage of GitHub's [fork queues](https://github.com/blog/270-the-fork-queue). With that, the merge can occur entirely within GitHub.
-
-### Simpler integration using the fork-queue
-
-1. Develop on a feature branch.
-1. Push to GitHub.
-1. At GitHub, switch to your feature branch, then click "Pull" to issue a *pull request*. Double-check the 'into' and 'from' branches.
-1. Someone logs into roy98102 and checks the fork-queue. (I use Chrome "Incognito Mode" for this.)
-    * If the change is simple, he applies it to `master` and updates the branch, all in GitHub.
-    * You will see the merge-commit on your own fork-queue, but you can ignore that.
-    * Close the pull request.
-1. Important: Delete your feature branch.
-
-The strange thing about the fork-queue is that *any* push you do to your GitHub repo will show up in the fork-queue. That makes your GitHub repo (usually called `origin`) very public.
-
-Try a few simple pull requests on your own `experimental` branch. I'll merge them into a throw-away `trash` branch for now. Use `gitx` to see what happens to your tree after you fetch the results.
+That's it.
 
 Remember: Branch early and often!
+#
+### Fork queues
+If you notice GitHub's [fork queues](https://github.com/blog/270-the-fork-queue), ignore them.
 
 ### Notes
 * [Useful cheatsheet.](http://cheat.errtheblog.com/s/git)
 * I am working on these notes by modifying these notes.
-
-a
-b
 
