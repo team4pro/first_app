@@ -115,7 +115,7 @@ That's the full solution, but we can skip steps for simple changes that do not r
 
 1. Develop on a feature branch.
 1. Push to GitHub.
-1. At GitHub, click on "Pull" to issue a *pull request*.
+1. At GitHub, switch to your feature branch, then click "Pull" to issue a *pull request*. Double-check the 'into' and 'from' branches.
 1. Someone logs into roy98102 and checks the fork-queue. (I use Chrome "Incognito Mode" for this.)
     * If the change is simple, he applies it to `master` and updates the branch, all in GitHub.
     * You will see the merge-commit on your own fork-queue, but you can ignore that.
