@@ -93,7 +93,8 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
             git merge cdunn2001-feature
             git push origin master
 
-    4. With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
+      With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
+   4. Close the pull request.
 
 1. You (and others) may then pull in the latest master from roy98102.
 
@@ -119,6 +120,7 @@ That's the full solution, but we can skip steps for simple changes that do not r
 1. Someone logs into roy98102 and checks the fork-queue. (I use Chrome "Incognito Mode" for this.)
     * If the change is simple, he applies it to `master` and updates the branch, all in GitHub.
     * You will see the merge-commit on your own fork-queue, but you can ignore that.
+    * Close the pull request.
 1. Pull the change into you local `master`.
         git fetch origin
         git checkout master
