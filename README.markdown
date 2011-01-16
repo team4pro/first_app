@@ -99,11 +99,14 @@ We are using the *Integration Manager* workflow [Figure 5-2](http://progit.org/b
       With that, the `feature` branch will *not* exist in roy98102, which is good. Only the changes on it have been merged into the `master` branch. 
    4. Close the pull request.
 
-1. At that point, the submitter may delete the feature branch from his own repo.
+1. At that point, you (the submitter) should delete the feature branch from your own repo. Although the upstream/master includes your changeset, it is technically a different commit. A future merge could be problematic.
 
         git checkout master
         git br -d feature
         git push origin :feature # to delete from GitHub
+        # If you want to continue on the feature,
+        # git pull upstream master
+        # git checkout -b feature master
 
 That's the full solution, but we can skip steps for simple changes that do not require testing. For those simple cases, we can take advantage of GitHub's [fork queues](https://github.com/blog/270-the-fork-queue). With that, the merge can occur entirely within GitHub.
 
@@ -116,7 +119,7 @@ That's the full solution, but we can skip steps for simple changes that do not r
     * If the change is simple, he applies it to `master` and updates the branch, all in GitHub.
     * You will see the merge-commit on your own fork-queue, but you can ignore that.
     * Close the pull request.
-1. Delete your feature branch, if you want.
+1. Important: Delete your feature branch.
 
 The strange thing about the fork-queue is that *any* push you do to your GitHub repo will show up in the fork-queue. That makes your GitHub repo (usually called `origin`) very public.
 
@@ -127,5 +130,3 @@ Remember: Branch early and often!
 ### Notes
 * [Useful cheatsheet.](http://cheat.errtheblog.com/s/git)
 * I am working on these notes by modifying these notes.
-
-
